@@ -18,6 +18,7 @@ import {
 // hand-maintained Set here had drifted ~138 domains from prod.
 import { isAllowedDomain } from './api/_rss-allowed-domain-match.js';
 import { rssFetchHeadersForHost } from './api/_rss-fetch-headers.js';
+import youtubeSearchHandler from './api/youtube/search.js';
 import { validateGeneratedRequest } from './server/request-validator';
 import {
   getChunkSizeWarning,
@@ -857,6 +858,39 @@ function youtubeLivePlugin(): Plugin {
   };
 }
 
+function youtubeMentionSearchPlugin(): Plugin {
+  return {
+    name: 'youtube-mention-search',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        if (!req.url?.startsWith('/api/youtube/search')) return next();
+
+        try {
+          const headers = new Headers();
+          for (const [name, value] of Object.entries(req.headers)) {
+            if (Array.isArray(value)) value.forEach((entry) => headers.append(name, entry));
+            else if (value !== undefined) headers.set(name, value);
+          }
+          const host = req.headers.host || 'localhost:3000';
+          const request = new Request(new URL(req.url, `http://${host}`), {
+            method: req.method,
+            headers,
+          });
+          const response = await youtubeSearchHandler(request, {});
+          res.statusCode = response.status;
+          response.headers.forEach((value, name) => res.setHeader(name, value));
+          res.end(await response.text());
+        } catch (error) {
+          console.error('[YouTube Mention Search] Error:', error);
+          res.statusCode = 500;
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ error: 'YouTube mention search failed', items: [] }));
+        }
+      });
+    },
+  };
+}
+
 function gpsjamDevPlugin(): Plugin {
   return {
     name: 'gpsjam-dev',
@@ -966,6 +1000,7 @@ export default defineConfig(({ mode }) => {
       webMcpDevSecurityHeadersPlugin(),
       polymarketPlugin(),
       rssProxyPlugin(),
+      youtubeMentionSearchPlugin(),
       youtubeLivePlugin(),
       gpsjamDevPlugin(),
       sebufApiPlugin(),

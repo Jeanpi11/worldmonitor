@@ -792,9 +792,30 @@
   },
   "components": {
     "monitor": {
-      "placeholder": "Palabras clave (separadas por comas)",
-      "add": "+ Agregar monitor",
-      "addKeywords": "Agregue palabras clave para monitorear las noticias",
+      "namePlaceholder": "Nombre de la marca o campaña",
+      "placeholder": "Palabras clave o alias (separados por comas)",
+      "exclusionsPlaceholder": "Términos que deben excluirse (opcional)",
+      "nameLabel": "Marca o campaña",
+      "keywordsLabel": "Palabras clave",
+      "exclusionsLabel": "Excluir",
+      "add": "+ Añadir seguimiento",
+      "refresh": "Actualizar fuentes",
+      "refreshing": "Actualizando…",
+      "addKeywords": "Añade una marca o campaña para comenzar a rastrear menciones",
+      "excluding": "excluye: {{terms}}",
+      "remove": "Eliminar {{name}}",
+      "newsCount": "{{count}} noticias",
+      "webCount": "{{count}} web",
+      "youtubeCount": "{{count}} YouTube",
+      "refreshingSources": "Buscando menciones recientes…",
+      "youtubeNotConfigured": "YouTube está desactivado hasta que añadas YOUTUBE_DATA_API_KEY en .env.local.",
+      "youtubeUnavailable": "La búsqueda de YouTube no está disponible temporalmente.",
+      "webUnavailable": "La búsqueda web no está disponible temporalmente.",
+      "sources": {
+        "news": "Noticias",
+        "web": "Web",
+        "youtube": "YouTube"
+      },
       "noMatches": "No hay coincidencias en {{count}} artículos",
       "showingMatches": "Mostrando {{count}} de {{total}} coincidencias",
       "match": "fósforo",
@@ -2153,7 +2174,7 @@
       "infoTooltip": "<strong>Indicadores macro</strong> Indicadores macroeconómicos clave para EE.UU. y la zona euro: CPI, desempleo, GDP y tasas de bancos centrales. Valores mostrados con delta del período anterior. Fuente: FRED (Datos Económicos de la Reserva Federal)."
     },
     "monitors": {
-      "infoTooltip": "<strong>Monitores de palabras clave</strong> Añada cualquier término para rastrear menciones en noticias en tiempo real en todas las fuentes de WorldMonitor. Los resultados se actualizan en tiempo real conforme se ingieren artículos coincidentes."
+      "infoTooltip": "<strong>Seguimiento de marcas y campañas</strong> Rastrea nombres, alias y exclusiones en las noticias de WorldMonitor, resultados web recientes y YouTube. La configuración y un historial de 30 días permanecen en este navegador."
     },
     "renewable": {
       "infoTooltip": "<strong>Energía renovable</strong> Cuota de las renovables en la generación de electricidad por región y año, más la capacidad instalada en EE. UU. de solar, eólica y carbón (MW). Fuentes: Banco Mundial (EG.ELC.RNEW.ZS) y EIA."
