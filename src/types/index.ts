@@ -637,6 +637,10 @@ export interface Monitor {
   keywords: string[];
   color: string;
   name?: string;
+  /** Terms that suppress otherwise-matching mentions (for ambiguous brands). */
+  excludedKeywords?: string[];
+  /** Epoch milliseconds; absent on keyword monitors created before brand tracking. */
+  createdAt?: number;
   lat?: number;
   lon?: number;
 }

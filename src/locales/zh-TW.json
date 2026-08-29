@@ -187,7 +187,9 @@
       "corporateDisclosures": "企業披露",
       "corridorConditions": "通道狀況",
       "activityNowcast": "活動即時預測",
-      "decisionSignalsUnavailable": "中國決策訊號快照當前不可用。"
+      "decisionSignalsUnavailable": "中國決策訊號快照當前不可用。",
+      "activeDisruptions_one": "{{count}} active disruption",
+      "activeSignals_one": "{{count}} active signal"
     },
     "foodStocks": "Food stocks",
     "foodStocksHelp": "USDA PSD commodity stocks-to-use by marketing year, with the world ratio alongside for context. FAOSTAT fills production only where PSD has no country coverage.",
@@ -565,7 +567,8 @@
       "flightMilitaryOnGround": "軍用 · {{type}} · 地面停靠",
       "flightSearchHint": "按 Enter 或點選檢視即時位置",
       "flightNotFound": "未找到 {{callsign}} 的即時位置",
-      "addPanel": "Add"
+      "addPanel": "Add",
+      "resultAnnouncement_one": "{{count}} result for {{query}}"
     },
     "signal": {
       "title": "情報發現",
@@ -818,7 +821,28 @@
       "noMatches": "在{{count}}篇文章中未找到匹配",
       "showingMatches": "顯示{{total}}個匹配中的{{count}}個",
       "match": "匹配",
-      "matches": "匹配"
+      "matches": "匹配",
+      "namePlaceholder": "Brand or campaign name",
+      "exclusionsPlaceholder": "Terms to exclude (optional)",
+      "nameLabel": "Brand or campaign",
+      "keywordsLabel": "Keywords",
+      "exclusionsLabel": "Exclude",
+      "refresh": "Refresh sources",
+      "refreshing": "Refreshing…",
+      "excluding": "excludes: {{terms}}",
+      "remove": "Remove {{name}}",
+      "newsCount": "{{count}} news",
+      "webCount": "{{count}} web",
+      "youtubeCount": "{{count}} YouTube",
+      "refreshingSources": "Searching for recent mentions…",
+      "youtubeNotConfigured": "YouTube is disabled until YOUTUBE_DATA_API_KEY is added to .env.local.",
+      "youtubeUnavailable": "YouTube search is temporarily unavailable.",
+      "webUnavailable": "Web search is temporarily unavailable.",
+      "sources": {
+        "news": "News",
+        "web": "Web",
+        "youtube": "YouTube"
+      }
     },
     "regulation": {
       "dashboard": "AI Regulation Dashboard",
@@ -1420,7 +1444,8 @@
       "compiledFrom": "編譯自 {{stories}} 條故事和 {{sources}} 個來源",
       "provenanceTitle": "覆蓋來源：此摘要選自多少條攝取的故事和不同的來源",
       "briefFreshness": "生成於 {{minutes}}m 前 · 最新來源 {{hours}}h 前",
-      "briefStoryDetails": "Story details ({{count}})"
+      "briefStoryDetails": "Story details ({{count}})",
+      "sources_one": "{{count}} source"
     },
     "settings": {
       "exportSettings": "匯出設定",
@@ -2035,12 +2060,17 @@
       "time": {
         "justNow": "剛才",
         "hoursAgo_other": "{{count}}小時前",
-        "daysAgo_other": "{{count}}天前"
+        "daysAgo_other": "{{count}}天前",
+        "hoursAgo_one": "{{count}}h ago",
+        "daysAgo_one": "{{count}}d ago"
       },
       "filters": {
         "alert_other": "{{count}} 條警報",
         "warning_other": "{{count}} 條警告",
-        "watch_other": "{{count}} 條監測"
+        "watch_other": "{{count}} 條監測",
+        "alert_one": "{{count}} Alert",
+        "warning_one": "{{count}} Warning",
+        "watch_one": "{{count}} Watch"
       },
       "errors": {
         "noData": "無可用的爆發資料",
@@ -2204,7 +2234,8 @@
       "appliesToNext": "適用於下一次AI重新生成",
       "signals_other": "{{count}}個訊號",
       "disclaimer": "AI生成的交易訊號僅供參考。非投資建議。請自行研究。",
-      "unavailable": "AI市場影響在每次預測執行後生成。請稍後檢視。"
+      "unavailable": "AI市場影響在每次預測執行後生成。請稍後檢視。",
+      "signals_one": "{{count}} signal"
     },
     "forecast": {
       "infoTooltip": "<strong>AI 預測</strong> AI 生成的地緣政治和經濟事件機率估計：<ul><li>跨域覆蓋：衝突、市場、供應鏈、網路安全、政治</li><li>每個預測顯示估計機率、置信度和時間範圍</li><li>根據預測市場基線進行校準（如可用）</li></ul>預測在新情報訊號到達時更新。使用上方標籤按域篩選。"
@@ -2437,7 +2468,8 @@
         "unattributed": "未歸屬",
         "program": "計劃",
         "undated": "無日期"
-      }
+      },
+      "designations_one": "{{count}} designation"
     },
     "radiationWatch": {
       "title": "輻射監測",
@@ -2470,7 +2502,9 @@
       },
       "observed": {
         "hoursAgo_other": "{{count}}h 前",
-        "daysAgo_other": "{{count}}d 前"
+        "daysAgo_other": "{{count}}d 前",
+        "hoursAgo_one": "{{count}}h ago",
+        "daysAgo_one": "{{count}}d ago"
       },
       "confidence": {
         "high": "高可信度",
@@ -2501,7 +2535,8 @@
       "empty": "未檢測到活躍收斂",
       "signals_other": "{{count}} 個訊號",
       "analyzing": "分析中...",
-      "viewOnMap": "在地圖上檢視"
+      "viewOnMap": "在地圖上檢視",
+      "signals_one": "{{count}} signal"
     },
     "thermalEscalation": {
       "title": "熱異常升級",
@@ -2530,8 +2565,13 @@
       "age": {
         "minutesAgo_other": "{{count}} 分鐘前",
         "hoursAgo_other": "{{count}} 小時前",
-        "daysAgo_other": "{{count}} 天前"
-      }
+        "daysAgo_other": "{{count}} 天前",
+        "minutesAgo_one": "{{count}}m ago",
+        "hoursAgo_one": "{{count}}h ago",
+        "daysAgo_one": "{{count}}d ago"
+      },
+      "observations_one": "{{count}} obs",
+      "sources_one": "{{count}} src"
     },
     "chokepointStrip": {
       "title": "瓶頸地點狀態",

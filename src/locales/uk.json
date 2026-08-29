@@ -919,7 +919,28 @@
       "noMatches": "No matches in {{count}} articles",
       "showingMatches": "Showing {{count}} of {{total}} matches",
       "match": "match",
-      "matches": "matches"
+      "matches": "matches",
+      "namePlaceholder": "Brand or campaign name",
+      "exclusionsPlaceholder": "Terms to exclude (optional)",
+      "nameLabel": "Brand or campaign",
+      "keywordsLabel": "Keywords",
+      "exclusionsLabel": "Exclude",
+      "refresh": "Refresh sources",
+      "refreshing": "Refreshing…",
+      "excluding": "excludes: {{terms}}",
+      "remove": "Remove {{name}}",
+      "newsCount": "{{count}} news",
+      "webCount": "{{count}} web",
+      "youtubeCount": "{{count}} YouTube",
+      "refreshingSources": "Searching for recent mentions…",
+      "youtubeNotConfigured": "YouTube is disabled until YOUTUBE_DATA_API_KEY is added to .env.local.",
+      "youtubeUnavailable": "YouTube search is temporarily unavailable.",
+      "webUnavailable": "Web search is temporarily unavailable.",
+      "sources": {
+        "news": "News",
+        "web": "Web",
+        "youtube": "YouTube"
+      }
     },
     "regulation": {
       "infoTooltip": "<strong>Regulation</strong> Regulatory actions, policy changes, and enforcement updates from global regulators: financial, tech, energy, and trade authorities. Sourced from official government and regulatory body publications.",

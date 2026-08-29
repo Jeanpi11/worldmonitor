@@ -8015,6 +8015,27 @@ a.prediction-link:hover {
   border-bottom: 1px solid var(--border);
 }
 
+.monitor-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+.monitor-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.monitor-field-label {
+  margin-bottom: 4px;
+  color: var(--text-dim);
+  font-size: calc(9px * var(--wm-panel-effective-scale, 1));
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .monitor-input {
   width: 100%;
   padding: 8px;
@@ -8023,7 +8044,7 @@ a.prediction-link:hover {
   color: var(--text);
   font-family: inherit;
   font-size: calc(11px * var(--wm-panel-effective-scale, 1));
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .monitor-input::placeholder {
@@ -8031,7 +8052,7 @@ a.prediction-link:hover {
 }
 
 .monitor-add-btn {
-  width: 100%;
+  flex: 1;
   padding: 6px;
   background: var(--green);
   border: none;
@@ -8041,6 +8062,35 @@ a.prediction-link:hover {
   font-weight: bold;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+.monitor-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.monitor-refresh-btn {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: calc(10px * var(--wm-panel-effective-scale, 1));
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.monitor-refresh-btn:hover:not(:disabled) {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.monitor-refresh-btn:disabled {
+  cursor: wait;
+  opacity: 0.55;
 }
 
 .monitor-add-btn:hover {
@@ -8056,6 +8106,7 @@ a.prediction-link:hover {
   border-radius: 2px;
   margin: 2px;
   font-size: calc(10px * var(--wm-panel-effective-scale, 1));
+  max-width: calc(100% - 4px);
 }
 
 .monitor-tag-color {
@@ -8065,12 +8116,129 @@ a.prediction-link:hover {
 }
 
 .monitor-tag-remove {
+  border: 0;
+  background: transparent;
+  color: inherit;
   cursor: pointer;
+  font: inherit;
   opacity: 0.6;
+  padding: 2px;
 }
 
 .monitor-tag-remove:hover {
   opacity: 1;
+}
+
+.monitor-tag-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.monitor-tag-copy strong,
+.monitor-tag-copy small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.monitor-tag-copy small {
+  color: var(--text-dim);
+  font-size: calc(8px * var(--wm-panel-effective-scale, 1));
+}
+
+.monitor-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.monitor-summary-card {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  background: color-mix(in srgb, var(--bg) 88%, var(--green) 12%);
+  padding: 8px;
+}
+
+.monitor-summary-card strong {
+  display: block;
+  margin-bottom: 5px;
+  overflow: hidden;
+  font-size: calc(11px * var(--wm-panel-effective-scale, 1));
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.monitor-summary-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  color: var(--text-dim);
+  font-size: calc(8px * var(--wm-panel-effective-scale, 1));
+}
+
+.monitor-source-notice {
+  margin: 8px 0;
+  border: 1px solid var(--border);
+  background: rgba(68, 136, 255, 0.08);
+  color: var(--text-dim);
+  padding: 7px 8px;
+  font-size: calc(9px * var(--wm-panel-effective-scale, 1));
+}
+
+.monitor-source-warning {
+  border-color: rgba(255, 136, 68, 0.35);
+  background: rgba(255, 136, 68, 0.08);
+}
+
+.monitor-result-count,
+.monitor-empty {
+  margin: 10px 0 8px;
+  color: var(--text-dim);
+  font-size: calc(10px * var(--wm-panel-effective-scale, 1));
+}
+
+.monitor-result {
+  margin: 7px 0;
+  border-left: 2px solid var(--green);
+  padding: 4px 0 4px 8px;
+}
+
+.monitor-result-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+}
+
+.monitor-source-badge {
+  border-radius: 2px;
+  padding: 1px 5px;
+  background: var(--border);
+  color: var(--text-dim);
+  font-size: calc(8px * var(--wm-panel-effective-scale, 1));
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.monitor-source-web {
+  background: rgba(68, 136, 255, 0.16);
+  color: #72a7ff;
+}
+
+.monitor-source-youtube {
+  background: rgba(255, 68, 68, 0.16);
+  color: #ff7474;
+}
+
+.monitor-result-monitor {
+  overflow: hidden;
+  color: var(--text-dim);
+  font-size: calc(8px * var(--wm-panel-effective-scale, 1));
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Loading */
