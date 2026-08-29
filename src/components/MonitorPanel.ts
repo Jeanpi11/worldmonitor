@@ -43,7 +43,12 @@ export class MonitorPanel extends Panel {
   private youtubeStatus: YouTubeMentionResult['status'] | 'idle' = 'idle';
 
   constructor(initialMonitors: Monitor[] = []) {
-    super({ id: 'monitors', title: t('panels.monitors'), infoTooltip: t('components.monitors.infoTooltip') });
+    super({
+      id: 'monitors',
+      title: t('panels.monitors'),
+      infoTooltip: t('components.monitors.infoTooltip'),
+      defaultRowSpan: 2,
+    });
     this.monitors = initialMonitors.map(normalizeMonitor).filter((monitor) => monitor.keywords.length > 0);
     this.mentionHistory = this.activeHistory(loadMonitorMentionHistory());
     this.renderInput();
@@ -129,6 +134,9 @@ export class MonitorPanel extends Panel {
     this.absorbNewsMentions();
     this.renderMonitorsList();
     this.renderResultsContent();
+    requestAnimationFrame(() => {
+      this.content.scrollTo({ top: this.monitorsList.offsetTop - 4, behavior: 'smooth' });
+    });
     void this.refreshRemoteMentions(true);
   }
 
