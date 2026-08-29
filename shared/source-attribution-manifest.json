@@ -6317,6 +6317,9 @@
         },
         {
           "path": "src/config/variants/tech.ts"
+        },
+        {
+          "path": "src/services/brand-monitor-sources.ts"
         }
       ],
       "role": "transport"
@@ -11708,6 +11711,20 @@
         },
         {
           "path": "src/components/MapPopup.ts"
+        }
+      ]
+    },
+    {
+      "host": "www.googleapis.com",
+      "provider": "www.googleapis.com",
+      "kind": "structured",
+      "observed": true,
+      "license": "Provider terms for this upstream API/dataset; verify before redistribution",
+      "attribution": "Credit www.googleapis.com and link to the original upstream API/dataset.",
+      "status": "terms-review",
+      "references": [
+        {
+          "path": "api/youtube/search.js"
         }
       ]
     },
